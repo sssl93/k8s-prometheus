@@ -9,10 +9,10 @@ spec:
   baseImage: quay.io/prometheus/alertmanager
   nodeSelector:
     beta.kubernetes.io/os: linux
-  replicas: 3
+  replicas: 2
   securityContext:
     fsGroup: 2000
     runAsNonRoot: true
     runAsUser: 1000
   serviceAccountName: alertmanager-main
-  version: v0.17.0
+  version: v0.18.0

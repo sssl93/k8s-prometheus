@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: generic-exporter
+  namespace: monitoring
+  labels:
+    k8s-app: generic-exporter
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: port
+    port: 10082
+    protocol: TCP
+  selector:
+    name: generic-exporter

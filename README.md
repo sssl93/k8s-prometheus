@@ -5,7 +5,7 @@
 <pre>
 修改监听地址为0.0.0.0
 生成etcd-secret
-kubectl -n monitoring create secret generic etcd-certs --from-file=/var/lib/minikube/certs/etcd/healthcheck-client.crt --from-file=/var/lib/minikube/certs/etcd/healthcheck-client.key --from-file=/var/lib/minikube/certs/etcd/ca.crt
+kubectl -n monitoring create secret generic etcd-certs --from-file=/tmp/etcd/healthcheck-client.crt --from-file=/tmp/etcd/healthcheck-client.key --from-file=/tmp/etcd/ca.crt
 
 </pre>
 - 修改kubelet配置

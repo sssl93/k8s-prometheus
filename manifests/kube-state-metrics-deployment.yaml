@@ -84,7 +84,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: k8s.gcr.io/addon-resizer:1.8.4
+        image: registry.cn-hangzhou.aliyuncs.com/google_containers/addon-resizer:1.8.4
         name: addon-resizer
         resources:
           limits:

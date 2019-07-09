@@ -44,3 +44,9 @@ kubectl proxy &
 kubectl get namespace $NAMESPACE -o json |jq '.spec = {"finalizers":[]}' >temp.json
 curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.0.0.1:8001/api/v1/namespaces/$NAMESPACE/finalize
 </pre>
+
+### Custom Metrics
+<pre>
+curl http://localhost:8001/apis/custom.metrics.k8s.io/v1beta1/namespaces/monitoring/pods/*/mmp_per_second
+kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1/|jq .
+</pre>
