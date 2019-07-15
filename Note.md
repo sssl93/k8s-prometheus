@@ -49,4 +49,5 @@ curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.
 <pre>
 curl http://localhost:8001/apis/custom.metrics.k8s.io/v1beta1/namespaces/monitoring/pods/*/mmp_per_second
 kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1/|jq .
+curl https://etcd-k8s.kube-system.svc/metrics -k --cert /var/lib/minikube/certs/etcd/ca.crt --key /var/lib/minikube/certs/etcd/ca.key
 </pre>

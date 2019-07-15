@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nodejs
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: test-nodejs
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        name: test-nodejs
+    spec:
+      containers:
+      - image: luksa/kubia
+        name: test-nodejs
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: 20Mi
+      nodeSelector:
+        beta.kubernetes.io/os: linux

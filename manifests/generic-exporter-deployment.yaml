@@ -18,12 +18,21 @@ spec:
         name: generic-exporter
     spec:
       containers:
-      - image: generic-exporter:dev
+      - image: boc-generic-exporter:dev
         name: generic-exporter
         ports:
         - containerPort: 10082
         resources:
           requests:
             memory: 20Mi
+        volumeMounts:
+        - mountPath: /opt/generic-config
+          name: config
+          readOnly: false
       nodeSelector:
         beta.kubernetes.io/os: linux
+
+      volumes:
+      - configMap:
+          name: generic-config
+        name: config

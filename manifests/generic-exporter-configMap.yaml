@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: generic-config
+  namespace: monitoring
+data:
+  generic-exporter.yml: ""

@@ -7,11 +7,23 @@ metadata:
     k8s-app: etcd
 spec:
   type: ClusterIP
-  clusterIP: None
   ports:
   - name: port
     port: 2379
     protocol: TCP
-  selector:
-    component: etcd
-    tier: control-plane
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  namespace: kube-system
+  name: etcd-k8s
+  labels:
+    k8s-app: etcd
+    namespace: kube-system
+subsets:
+- addresses:
+  - ip: 10.0.2.15
+  ports:
+  - name: port
+    port: 2379
+    protocol: TCP
